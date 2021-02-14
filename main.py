@@ -1,7 +1,7 @@
 import logging
-from database_utilities import load_into_sqlite
-from extract import extract_csv
-from transform import clean_record
+from etl.extract import extract_csv
+from etl.transform import clean_record
+from utilities.database_utilities import load_into_sqlite
 
 if __name__ == '__main__':
     logging.basicConfig(level=logging.DEBUG) # set a verbose logging level to see all log output
