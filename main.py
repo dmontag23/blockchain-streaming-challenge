@@ -1,6 +1,7 @@
 import logging
 from etl.extract import extract_csv
 from etl.transform import clean_record
+from reporting.reporting import generate_email_report
 from utilities.database_utilities import load_into_sqlite
 
 if __name__ == '__main__':
@@ -15,6 +16,7 @@ if __name__ == '__main__':
         if (idx % 1000) == 999:
             load_into_sqlite(list_of_tuples)
             list_of_tuples.clear()
+            generate_email_report()
 
     load_into_sqlite(list_of_tuples)
     list_of_tuples.clear()
