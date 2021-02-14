@@ -1,5 +1,6 @@
 FROM python:3.7.9-slim-stretch
-COPY src /src
-WORKDIR /src
+WORKDIR /app
+COPY . /app
+RUN mkdir -p db
 ENTRYPOINT ["python"]
 CMD ["main.py"]
