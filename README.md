@@ -25,6 +25,9 @@ except for the load function which fits better in the database utilities file. T
 reporting utility is also kept in its own directory. While this project sets up a basic data pipeline,
 there are many ways in which it can be improved.
 
+You can view the emails sent by the pipeline on gmail.com. To log in, use the username ``dillondatapipeline@gmail.com``
+and the password ``Blockchain``.
+
 # Improvement and Extensions
 ## Improvements
 - Create interfaces for ETL operations: one of the main problems with the project is that it is not very extensible. If given more time, I would like to create an interface
