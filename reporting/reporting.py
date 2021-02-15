@@ -99,9 +99,9 @@ def generate_email_report():
     :rtype: None
     """
 
-    receiver_emails = ["dillondatapipeline@gmail.com"]
+    receiver_emails = ["dillondatapipeline@gmail.com", "dmontag23@gmail.com"]
     subject = "Your User Report!"
-    text = "Hi there!\n\nThis is your friendly Python Robot with you new user report.\n\n"
+    text = "Hi there!\n\nThis is your friendly Python Robot with your new user report.\n\n"
     text += "The total number of users is now: " + report_total_number_of_users() + ". However, " + report_null_users() + \
             " users do not have a valid state or postcode, and so these records are unlikely to be helpful. \n\n"
     text += "Here are the cities with the most user activity : \n\n" + report_users_by_city() + "\n"
