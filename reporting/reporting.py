@@ -7,6 +7,19 @@ import smtplib
 import ssl
 from utilities.database_utilities import execute_sql_statement
 
+def report_null_users():
+    """
+    Reports the total number of users with null in both the "state" and "postcode" field
+
+    :returns: The number of users with null in both the "state" and "postcode" field
+    :rtype: str
+    """
+
+    null_users = ""
+    null_user_count = execute_sql_statement("SELECT COUNT(*) FROM location WHERE state IS NULL AND postcode IS NULL;")[0][0]
+    null_users += str(null_user_count)
+    return null_users
+
 def report_total_number_of_users():
     """
     Reports the total number of users in the database as a string
@@ -89,7 +102,8 @@ def generate_email_report():
     receiver_emails = ["dillondatapipeline@gmail.com"]
     subject = "Your User Report!"
     text = "Hi there!\n\nThis is your friendly Python Robot with you new user report.\n\n"
-    text += "The total number of users is now: " + report_total_number_of_users() + "\n\n"
+    text += "The total number of users is now: " + report_total_number_of_users() + ". However, " + report_null_users() + \
+            " users do not have a valid state or postcode, and so these records are unlikely to be helpful. \n\n"
     text += "Here are the cities with the most user activity : \n\n" + report_users_by_city() + "\n"
     text += "The number of users by state is: \n\n" + report_users_by_state() + "\n"
     text += "That's all for now! Have a fantastic day :-)"
